@@ -98,6 +98,91 @@ Label *createLabel(
     return sprite;
 }
 
+// PHYSICS //
+
+PhysicsBody *createPhysicsBody(
+    Node *target,
+    int catMask,     // category bitmask (flag for object) eg. 1
+    int colMask,     // collision bitmask (flags count of interactable objects for the object) eg. 2 + 3
+    bool isDynamic = true
+) {
+    PhysicsBody *body = PhysicsBody::create();
+    body->setDynamic(isDynamic);
+    body->setCategoryBitmask(catMask);
+    body->setCollisionBitmask(colMask);
+    target->setPhysicsBody(body);
+    return body;
+}
+
+PhysicsBody *createPhysicsBodyCircle(
+    Node *target,
+    float radius,
+    int catMask,
+    int colMask,
+    bool isDynamic = true
+) {
+    PhysicsBody *body = createPhysicsBody(target, catMask);
+    body->addShape(PhysicsShapeCircle::create(radius));
+}
+
+PhysicsBody *createPhysicsBodyPolygon(
+    Node *target,
+    const Vec2 *vec2Arr,
+    int arrCount,
+    int catMask,
+    int colMask,
+    bool isDynamic = true
+) {
+    PhysicsBody *body = createPhysicsBody(target, catMask);
+    body->addShape(PhysicsShapePolygon::create(vec2Arr, arrCount));
+}
+
+PhysicsBody *createPhysicsBodyBox(
+    Node *target,
+    const Size &size,
+    int catMask,
+    int colMask,
+    bool isDynamic = true
+) {
+    PhysicsBody *body = createPhysicsBody(target, catMask);
+    body->addShape(PhysicsShapeBox::create(size));
+}
+
+PhysicsBody *createPhysicsBodyEdgeSegment(
+    Node *target,
+    const Vec2 &a,
+    const Vec2 &b,
+    int catMask,
+    int colMask,
+    bool isDynamic = true
+) {
+    PhysicsBody *body = createPhysicsBody(target, catMask);
+    body->addShape(PhysicsShapeEdgeSegment::create(a, b));
+}
+
+PhysicsBody *createPhysicsBodyEdgePolygon(
+    Node *target,
+    const Vec2 *vec2Arr,
+    int arrCount,
+    int catMask,
+    int colMask,
+    bool isDynamic = true
+) {
+    PhysicsBody *body = createPhysicsBody(target, catMask);
+    body->addShape(PhysicsShapeEdgePolygon::create(vec2Arr, arrCount));
+}
+
+PhysicsBody *createPhysicsBodyEdgeBox(
+    Node *target,
+    const Size &size,
+    int catMask,
+    int colMask,
+    bool isDynamic = true
+) {
+    PhysicsBody *body = createPhysicsBody(target, catMask);
+    body->addShape(PhysicsShapeEdgeBox::create(size));
+}
+
 }
 
 #endif // __TOOL_H__

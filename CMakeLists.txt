@@ -64,6 +64,7 @@ list(APPEND GAME_HEADER
      Classes/AppDelegate.h
      Classes/Definition.h
      Classes/Tool.h
+     Classes/CREATURES/Bitmask.h
      Classes/GUI/Controller.h
      Classes/SCENES/GameScene.h
      )

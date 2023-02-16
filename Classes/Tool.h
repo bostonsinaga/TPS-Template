@@ -6,7 +6,7 @@
 
 USING_NS_CC;
 
-namespace mytool {
+namespace NStool {
 
 /*************/
 /* VARIABLES */
@@ -102,8 +102,10 @@ Label *createLabel(
 
 PhysicsBody *createPhysicsBody(
     Node *target,
-    int catMask,     // category bitmask (flag for object) eg. 1
-    int colMask,     // collision bitmask (flags count of interactable objects for the object) eg. 2 + 3
+    int catMask,
+    /* category bitmask (flag for object) eg. 1, 2, 4, 8, ... */
+    int colMask,
+    /* collision bitmask (flags count of interactable objects for the object) eg. 2 + 4 */
     bool isDynamic = true
 ) {
     PhysicsBody *body = PhysicsBody::create();

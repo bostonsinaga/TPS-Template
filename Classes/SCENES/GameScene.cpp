@@ -49,8 +49,8 @@ void GameScene::goToGameOverScene(float dt) {
 // take a screenshot
 cocos2d::RenderTexture *GameScene::getRenTex() {
 
-    auto renTex = RenderTexture::create(mytool::vSize.width, mytool::vSize.height);
-    renTex->setPosition(mytool::ctrPos());
+    auto renTex = RenderTexture::create(NStool::vSize.width, NStool::vSize.height);
+    renTex->setPosition(NStool::ctrPos());
 
     renTex->begin();
     this->getParent()->visit();

@@ -17,7 +17,7 @@ Size vSize = Director::getInstance()->getVisibleSize();
 Vec2 vOrigin = Director::getInstance()->getVisibleOrigin();
 
 // firstly, fill this with scene layer!
-Layer currentLayer;
+Layer *currentLayer;
 
 /*************/
 /* FUNCTIONS */

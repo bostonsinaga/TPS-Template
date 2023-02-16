@@ -23,11 +23,23 @@ bool GameScene::init() {
     // 1. super init first
     if (!Layer::init()) {
         return false;
-    }    
+    }
+
+    /***************************/
+    /* TEMPLATE INITIALIZATION */
+    /***************************/
+
+    NStool::currentLayer = this;
 
     // event listeners
     initTouch();
     onKeyReleasing();
+
+    /*************************/
+    /* CUSTOM INITIALIZATION */
+    /*************************/
+
+    // codes..
 
     return true;
 }

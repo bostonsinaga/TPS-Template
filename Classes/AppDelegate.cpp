@@ -47,29 +47,29 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // QHD
     if (screenSize.width + screenSize.height > 3500) {
     
-        resDirOrders.push_back("1440x2560");
-        glview->setDesignResolutionSize(1440, 2560, ResolutionPolicy::NO_BORDER);
+        resDirOrders.push_back("2560x1440");
+        glview->setDesignResolutionSize(2560, 1440, ResolutionPolicy::NO_BORDER);
         scaleRate = 1.0;
     }
     // FHD
     else if (screenSize.width + screenSize.height > 2500) {
     
-        resDirOrders.push_back("1080x1920");
-        glview->setDesignResolutionSize(1080, 1920, ResolutionPolicy::NO_BORDER);
+        resDirOrders.push_back("1920x1080");
+        glview->setDesignResolutionSize(1920, 1080, ResolutionPolicy::NO_BORDER);
         scaleRate = 0.75;
     }
     // HD
     else if (screenSize.width + screenSize.height > 1500) {
     
-        resDirOrders.push_back("720x1280");
-        glview->setDesignResolutionSize(720, 1280, ResolutionPolicy::NO_BORDER);
+        resDirOrders.push_back("1280x720");
+        glview->setDesignResolutionSize(1280, 720, ResolutionPolicy::NO_BORDER);
         scaleRate = 0.5;
     }
     // SD
     else {
     
-        resDirOrders.push_back("540x960");
-        glview->setDesignResolutionSize(540, 960, ResolutionPolicy::NO_BORDER);
+        resDirOrders.push_back("960x540");
+        glview->setDesignResolutionSize(960, 540, ResolutionPolicy::NO_BORDER);
         scaleRate = 0.375;
     }
 

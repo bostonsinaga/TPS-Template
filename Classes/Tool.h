@@ -55,6 +55,26 @@ Node *createNode(
     return node;
 }
 
+// call this in 'SplashScene.h' or in enterance scene
+void setupSpriteFrameCache(std::string fileName) {
+    auto cache = SpriteFrameCache::getInstance();
+    cache->addSpriteFramesWithFile(fileName);
+}
+
+// using sprite sheet (recommended)
+Sprite *createSpriteFrame(
+    std::string frameName,
+    Vec2 pos,
+    Node *parent = nullptr,
+    int zOrder = 0,
+    Vec2 conSzIndentFlag = Vec2::ZERO
+) {
+    auto sprite = Sprite::createWithSpriteFrameName(frameName);
+    setUpNode(sprite, parent, &pos, &conSzIndentFlag, zOrder, true);
+    return sprite;
+}
+
+// conventional sprite creation (without sprite sheet)
 Sprite *createSprite(
     std::string fileName,
     Vec2 pos = Vec2::ZERO,
@@ -98,7 +118,7 @@ Label *createLabel(
     return sprite;
 }
 
-// PHYSICS //
+// PHYSICS FUNCTIONS //
 
 PhysicsBody *createPhysicsBody(
     Node *target,

@@ -156,12 +156,17 @@ void setupSpriteFrameCache(std::string fileName) {
 // using sprite sheet (recommended)
 Sprite *createSpriteFrame(
     std::string frameName,
-    Vec2 pos,
+    Vec2 pos = Vec2::ZERO,
+    Size size = Size::ZERO,
     Node *parent = nullptr,
-    int zOrder = 0,
-    Vec2 conSzIndentFlag = Vec2::ZERO
+    int zOrder = 0
 ) {
     auto sprite = Sprite::createWithSpriteFrameName(frameName);
+
+    if (size != Size::ZERO && size != Size(0, 0)) {
+        sprite->setContentSize() = size;
+    }
+
     settleNode(sprite, pos, zOrder, parent);
     return sprite;
 }
